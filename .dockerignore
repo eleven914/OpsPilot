@@ -1,0 +1,14 @@
+.git
+.venv
+.pytest_cache
+.ruff_cache
+__pycache__
+*.py[cod]
+*.db
+.coverage
+htmlcov
+node_modules
+apps/web/node_modules
+apps/web/dist
+apps/web/*.tsbuildinfo
+tests

@@ -1,0 +1,43 @@
+{
+  "dataset_version": "opspilot-synthetic-v0.1",
+  "dpo_by_split": {"test": 340, "train": 1360, "validation": 340},
+  "dpo_count": 2040,
+  "eligible_for_final_benchmark": false,
+  "files": {
+    "dpo_test.jsonl": {"records": 340, "sha256": "ba3e6f387ffdb8310b3e7a9637951f0a9febbc4d606194b884394414dab624f7"},
+    "dpo_train.jsonl": {"records": 1360, "sha256": "43676c44e32194baa7e143b8e30da0cc8978031e651bc57a489786ba77f98d47"},
+    "dpo_validation.jsonl": {"records": 340, "sha256": "df14c58bd31da90cd481ef41fa0ee053dd49c0027dda63a0c9f4ae3c19cb2f21"},
+    "sft_test.jsonl": {"records": 1344, "sha256": "dc8bc8434a8d65a56a0787cc418c73fa869018641e5add15afb1e2d459b232d1"},
+    "sft_train.jsonl": {"records": 5376, "sha256": "a365bb1167a836496bd5b90d6f999afe4045be9eedf0c0fd3ebfa0fe08179d92"},
+    "sft_validation.jsonl": {"records": 1344, "sha256": "007b692c7da891bc135d33777fc1a249f0345945571631312ff2a3488ab7f70b"}
+  },
+  "preference_types": {
+    "approval_required": 408,
+    "correct_tool": 408,
+    "evidence_grounded": 408,
+    "honest_uncertainty": 408,
+    "valid_arguments": 408
+  },
+  "review_status": "rule_validated_not_human_reviewed",
+  "services_by_split": {
+    "test": ["inventory"],
+    "train": ["gateway", "order", "payment"],
+    "validation": ["notification"]
+  },
+  "sft_by_split": {"test": 1344, "train": 5376, "validation": 1344},
+  "sft_count": 8064,
+  "templates_by_split": {
+    "test": ["inventory_disk_pressure", "inventory_single_instance_failure"],
+    "train": [
+      "gateway_cpu_saturation",
+      "gateway_downstream_5xx",
+      "gateway_thread_pool_exhaustion",
+      "order_database_pool_exhaustion",
+      "order_release_regression",
+      "order_slow_query",
+      "payment_false_alarm",
+      "payment_redis_timeout"
+    ],
+    "validation": ["notification_bad_configuration", "notification_memory_leak"]
+  }
+}

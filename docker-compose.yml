@@ -1,0 +1,142 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: opspilot
+      POSTGRES_USER: opspilot
+      POSTGRES_PASSWORD: opspilot
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U opspilot"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    volumes:
+      - redis_data:/data
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    env_file: .env
+    environment:
+      OPSPILOT_TASK_MODE: ${OPSPILOT_TASK_MODE:-celery}
+      OPSPILOT_TASK_SOFT_TIME_LIMIT_SECONDS: ${OPSPILOT_TASK_SOFT_TIME_LIMIT_SECONDS:-240}
+      OPSPILOT_TASK_TIME_LIMIT_SECONDS: ${OPSPILOT_TASK_TIME_LIMIT_SECONDS:-300}
+      OPSPILOT_MODEL_INPUT_COST_PER_MILLION_TOKENS: ${OPSPILOT_MODEL_INPUT_COST_PER_MILLION_TOKENS:-0}
+      OPSPILOT_MODEL_OUTPUT_COST_PER_MILLION_TOKENS: ${OPSPILOT_MODEL_OUTPUT_COST_PER_MILLION_TOKENS:-0}
+      OPSPILOT_SERVICE_NAME: opspilot-api
+      OPSPILOT_OTEL_ENABLED: ${OPSPILOT_OTEL_ENABLED:-true}
+      OPSPILOT_OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318/v1/traces
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      otel-collector:
+        condition: service_started
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    command:
+      - python
+      - -m
+      - opspilot.tasks.worker
+    env_file: .env
+    environment:
+      OPSPILOT_TASK_MODE: ${OPSPILOT_TASK_MODE:-celery}
+      OPSPILOT_TASK_SOFT_TIME_LIMIT_SECONDS: ${OPSPILOT_TASK_SOFT_TIME_LIMIT_SECONDS:-240}
+      OPSPILOT_TASK_TIME_LIMIT_SECONDS: ${OPSPILOT_TASK_TIME_LIMIT_SECONDS:-300}
+      OPSPILOT_WORKER_CONCURRENCY: ${OPSPILOT_WORKER_CONCURRENCY:-2}
+      OPSPILOT_BROKER_VISIBILITY_TIMEOUT_SECONDS: ${OPSPILOT_BROKER_VISIBILITY_TIMEOUT_SECONDS:-60}
+      OPSPILOT_CHAOS_TASK_DELAY_SECONDS: ${OPSPILOT_CHAOS_TASK_DELAY_SECONDS:-0}
+      OPSPILOT_CHAOS_IGNORE_SOFT_TIME_LIMIT: ${OPSPILOT_CHAOS_IGNORE_SOFT_TIME_LIMIT:-false}
+      OPSPILOT_MODEL_INPUT_COST_PER_MILLION_TOKENS: ${OPSPILOT_MODEL_INPUT_COST_PER_MILLION_TOKENS:-0}
+      OPSPILOT_MODEL_OUTPUT_COST_PER_MILLION_TOKENS: ${OPSPILOT_MODEL_OUTPUT_COST_PER_MILLION_TOKENS:-0}
+      OPSPILOT_SERVICE_NAME: opspilot-worker
+      OPSPILOT_OTEL_ENABLED: ${OPSPILOT_OTEL_ENABLED:-true}
+      OPSPILOT_OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318/v1/traces
+      OPSPILOT_METRICS_PORT: "9100"
+      PROMETHEUS_MULTIPROC_DIR: /tmp/opspilot-prometheus
+    expose:
+      - "9100"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      otel-collector:
+        condition: service_started
+
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.111.0
+    command: ["--config=/etc/otelcol-contrib/config.yaml"]
+    volumes:
+      - ./observability/otel-collector.yml:/etc/otelcol-contrib/config.yaml:ro
+    depends_on:
+      - tempo
+
+  tempo:
+    image: grafana/tempo:2.6.1
+    command: ["-config.file=/etc/tempo.yml"]
+    volumes:
+      - ./observability/tempo.yml:/etc/tempo.yml:ro
+      - tempo_data:/var/tempo
+
+  prometheus:
+    image: prom/prometheus:v2.55.0
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./observability/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    depends_on:
+      - api
+
+  grafana:
+    image: grafana/grafana:11.2.2
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:-opspilot}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./observability/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./observability/grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - prometheus
+      - tempo
+
+  web:
+    build:
+      context: apps/web
+    ports:
+      - "5173:80"
+    depends_on:
+      - api
+
+volumes:
+  postgres_data:
+  redis_data:
+  prometheus_data:
+  grafana_data:
+  tempo_data:

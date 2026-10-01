@@ -1,0 +1,83 @@
+{
+  "dataset_version": "opspilot-synthetic-v0.2",
+  "dpo_by_split": {
+    "test": 340,
+    "train": 1360,
+    "validation": 340
+  },
+  "dpo_count": 2040,
+  "eligible_for_final_benchmark": false,
+  "files": {
+    "dpo_test.jsonl": {
+      "records": 340,
+      "sha256": "2b1f9c255faecf44ab65b9ea91e153046c8f31f1353d89c89565f43ac747b253"
+    },
+    "dpo_train.jsonl": {
+      "records": 1360,
+      "sha256": "f2a2d2254ce49dabb6e46b4c85487e414a7269a2c091b8f98d413ae01cf8c8c7"
+    },
+    "dpo_validation.jsonl": {
+      "records": 340,
+      "sha256": "3132b9e74b8077fd8c87061ca911e0d5a7524ce7824d0d43abca7332463bd64a"
+    },
+    "sft_test.jsonl": {
+      "records": 1344,
+      "sha256": "fda58dfa185ccc23723c4c79eeb47cb863b57bf252e89245d50bd28994c9a3aa"
+    },
+    "sft_train.jsonl": {
+      "records": 5376,
+      "sha256": "0192b4eb04b54fe901b9601414aa4bce309eb99c9cbc557bec31dd570fdbed9d"
+    },
+    "sft_validation.jsonl": {
+      "records": 1344,
+      "sha256": "8ed27274dfb408cc689446b4938f0fd2d9bb611fb0a488164af068295c0590e5"
+    }
+  },
+  "preference_types": {
+    "approval_required": 408,
+    "correct_tool": 408,
+    "evidence_grounded": 408,
+    "honest_uncertainty": 408,
+    "valid_arguments": 408
+  },
+  "review_status": "rule_validated_not_human_reviewed",
+  "services_by_split": {
+    "test": [
+      "inventory"
+    ],
+    "train": [
+      "gateway",
+      "order",
+      "payment"
+    ],
+    "validation": [
+      "notification"
+    ]
+  },
+  "sft_by_split": {
+    "test": 1344,
+    "train": 5376,
+    "validation": 1344
+  },
+  "sft_count": 8064,
+  "templates_by_split": {
+    "test": [
+      "inventory_disk_pressure",
+      "inventory_single_instance_failure"
+    ],
+    "train": [
+      "gateway_cpu_saturation",
+      "gateway_downstream_5xx",
+      "gateway_thread_pool_exhaustion",
+      "order_database_pool_exhaustion",
+      "order_release_regression",
+      "order_slow_query",
+      "payment_false_alarm",
+      "payment_redis_timeout"
+    ],
+    "validation": [
+      "notification_bad_configuration",
+      "notification_memory_leak"
+    ]
+  }
+}

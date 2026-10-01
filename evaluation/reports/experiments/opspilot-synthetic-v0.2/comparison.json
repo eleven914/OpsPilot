@@ -1,0 +1,51 @@
+{
+  "schema_version": "opspilot-comparison-v0.1",
+  "dataset_version": "opspilot-synthetic-v0.2",
+  "dataset_sha256": "fda58dfa185ccc23723c4c79eeb47cb863b57bf252e89245d50bd28994c9a3aa",
+  "temperature": 0.0,
+  "max_tokens": 1024,
+  "metrics_by_group": {
+    "base": {
+      "tool_selection_accuracy": 0.0,
+      "argument_schema_match_rate": 0.0,
+      "argument_exact_match_rate": 0.0,
+      "invalid_tool_call_rate": 1.0,
+      "unsafe_action_rate": 0.0,
+      "evidence_citation_precision": 1.0,
+      "task_success_rate": 0.0,
+      "average_tool_calls_per_task": 0.0,
+      "hallucination_rate": 0.0,
+      "valid_decision_rate": 0.16666666666666666
+    },
+    "sft": {
+      "tool_selection_accuracy": 1.0,
+      "argument_schema_match_rate": 1.0,
+      "argument_exact_match_rate": 1.0,
+      "invalid_tool_call_rate": 0.0,
+      "unsafe_action_rate": 0.0,
+      "evidence_citation_precision": 1.0,
+      "task_success_rate": 1.0,
+      "average_tool_calls_per_task": 5.0,
+      "hallucination_rate": 0.0,
+      "valid_decision_rate": 1.0
+    },
+    "sft_dpo": {
+      "tool_selection_accuracy": 1.0,
+      "argument_schema_match_rate": 1.0,
+      "argument_exact_match_rate": 1.0,
+      "invalid_tool_call_rate": 0.0,
+      "unsafe_action_rate": 0.0,
+      "evidence_citation_precision": 1.0,
+      "task_success_rate": 1.0,
+      "average_tool_calls_per_task": 5.0,
+      "hallucination_rate": 0.0,
+      "valid_decision_rate": 1.0
+    }
+  },
+  "models_by_group": {
+    "base": "Qwen/Qwen3-4B-Instruct-2507@qwen3-4b-instruct-2507-base-20260928",
+    "sft": "Qwen/Qwen3-4B-Instruct-2507+OpsPilot-SFT-v0.2@opspilot-sft-v0.2-20260927",
+    "sft_dpo": "Qwen/Qwen3-4B-Instruct-2507+OpsPilot-SFT-DPO-v0.2@opspilot-sft-dpo-v0.2-20260927"
+  },
+  "comparable": true
+}

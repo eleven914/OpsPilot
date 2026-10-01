@@ -1,0 +1,10 @@
+### Do not add quantization_bit while merging a LoRA/QLoRA adapter.
+model_name_or_path: Qwen/Qwen3-4B-Instruct-2507
+adapter_name_or_path: training/artifacts/qwen3-4b/opspilot-sft-v0.2
+template: qwen3_nothink
+trust_remote_code: true
+
+export_dir: training/artifacts/qwen3-4b/opspilot-sft-v0.2-merged
+export_size: 5
+export_device: cpu
+export_legacy_format: false

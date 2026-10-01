@@ -1,0 +1,69 @@
+{
+  "schema_version": "opspilot-experiment-v0.1",
+  "run_id": "qwen3-4b-dpo-v0.2-001",
+  "stage": "dpo",
+  "created_at": "2026-09-27T09:51:01.974332+00:00",
+  "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+  "llamafactory_version": "0.9.5",
+  "seed": 20260925,
+  "hardware": "AutoDL RTX 4080 32GB; PyTorch 2.5.1+cu124; CUDA 12.4",
+  "git": {
+    "commit": "edf245f3b80a16fd3731e3ac7c4fae11c19215d1",
+    "dirty": false
+  },
+  "config": {
+    "path": "training/configs/dpo/qwen3_4b_qlora.yaml",
+    "sha256": "b5318cca7a08e0e7789484b1ac5c97e5640023d1a770d81b98ea96aef138438e"
+  },
+  "dataset": {
+    "version": "opspilot-synthetic-v0.2",
+    "manifest_path": "data/manifests/opspilot-synthetic-v0.2.json",
+    "manifest_sha256": "7c956ff6a79565ba6811f73b8d47e0df3d232f4aee8b0338744d35f0c8fbbe10",
+    "files": {
+      "dpo_test.jsonl": {
+        "records": 340,
+        "sha256": "2b1f9c255faecf44ab65b9ea91e153046c8f31f1353d89c89565f43ac747b253"
+      },
+      "dpo_train.jsonl": {
+        "records": 1360,
+        "sha256": "f2a2d2254ce49dabb6e46b4c85487e414a7269a2c091b8f98d413ae01cf8c8c7"
+      },
+      "dpo_validation.jsonl": {
+        "records": 340,
+        "sha256": "3132b9e74b8077fd8c87061ca911e0d5a7524ce7824d0d43abca7332463bd64a"
+      },
+      "sft_test.jsonl": {
+        "records": 1344,
+        "sha256": "fda58dfa185ccc23723c4c79eeb47cb863b57bf252e89245d50bd28994c9a3aa"
+      },
+      "sft_train.jsonl": {
+        "records": 5376,
+        "sha256": "0192b4eb04b54fe901b9601414aa4bce309eb99c9cbc557bec31dd570fdbed9d"
+      },
+      "sft_validation.jsonl": {
+        "records": 1344,
+        "sha256": "8ed27274dfb408cc689446b4938f0fd2d9bb611fb0a488164af068295c0590e5"
+      }
+    },
+    "conversion_manifest_path": "data/generated/llamafactory/conversion_manifest.json",
+    "conversion_manifest_sha256": "32be9f2a72fb40ab9e2c2f6829cf23c2e642344d35fb0e065f5a11e5a6720525",
+    "training_files": {
+      "dpo_train.jsonl": {
+        "records": 1360,
+        "sha256": "5efa29106ca56ae558c8a3e60cb64ab82dd50e9f6fbefa8552673e50d5ecb769"
+      },
+      "dpo_validation.jsonl": {
+        "records": 340,
+        "sha256": "eaa26188ae73901840365aca14eebfc5459bcc14b2e8307718ee715f6c7d6256"
+      },
+      "sft_train.jsonl": {
+        "records": 5376,
+        "sha256": "f97fa68a788ddb98171924bd01ce853d9171fcad9a78ddd759be05e556ae87c8"
+      },
+      "sft_validation.jsonl": {
+        "records": 1344,
+        "sha256": "f14f79e986d64fcdb551e8867de4575d758940f9d69fd57013d30d63233aea1c"
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": "opspilot-eval-v0.1",
+  "metadata": {
+    "model_group": "sft_dpo",
+    "model_name": "Qwen/Qwen3-4B-Instruct-2507+OpsPilot-SFT-DPO-v0.2",
+    "model_version": "opspilot-sft-dpo-v0.2-20260927",
+    "dataset_version": "opspilot-synthetic-v0.2",
+    "dataset_sha256": "fda58dfa185ccc23723c4c79eeb47cb863b57bf252e89245d50bd28994c9a3aa",
+    "temperature": 0.0,
+    "max_tokens": 1024
+  },
+  "metrics": {
+    "tool_selection_accuracy": 1.0,
+    "argument_schema_match_rate": 1.0,
+    "argument_exact_match_rate": 1.0,
+    "invalid_tool_call_rate": 0.0,
+    "unsafe_action_rate": 0.0,
+    "evidence_citation_precision": 1.0,
+    "task_success_rate": 1.0,
+    "average_tool_calls_per_task": 5.0,
+    "hallucination_rate": 0.0,
+    "valid_decision_rate": 1.0
+  },
+  "counts": {
+    "samples": 1344,
+    "tasks": 224,
+    "tool_samples": 1120,
+    "terminal_samples": 224,
+    "valid_decisions": 1344,
+    "successful_tasks": 224,
+    "unsafe_outputs": 0,
+    "hallucinated_terminal_outputs": 0
+  },
+  "failures": [],
+  "comparable": true,
+  "notes": [
+    "Metrics are measured from supplied predictions, not estimated.",
+    "Comparisons are valid only when dataset hash and generation settings match."
+  ]
+}

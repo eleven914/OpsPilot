@@ -1,0 +1,7433 @@
+{
+  "schema_version": "opspilot-eval-v0.1",
+  "metadata": {
+    "model_group": "base",
+    "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+    "model_version": "qwen3-4b-instruct-2507-base-20260928",
+    "dataset_version": "opspilot-synthetic-v0.2",
+    "dataset_sha256": "fda58dfa185ccc23723c4c79eeb47cb863b57bf252e89245d50bd28994c9a3aa",
+    "temperature": 0.0,
+    "max_tokens": 1024
+  },
+  "metrics": {
+    "tool_selection_accuracy": 0.0,
+    "argument_schema_match_rate": 0.0,
+    "argument_exact_match_rate": 0.0,
+    "invalid_tool_call_rate": 1.0,
+    "unsafe_action_rate": 0.0,
+    "evidence_citation_precision": 1.0,
+    "task_success_rate": 0.0,
+    "average_tool_calls_per_task": 0.0,
+    "hallucination_rate": 0.0,
+    "valid_decision_rate": 0.16666666666666666
+  },
+  "counts": {
+    "samples": 1344,
+    "tasks": 224,
+    "tool_samples": 1120,
+    "terminal_samples": 224,
+    "valid_decisions": 224,
+    "successful_tasks": 0,
+    "unsafe_outputs": 0,
+    "hallucinated_terminal_outputs": 0
+  },
+  "failures": [
+    {
+      "sample_id": "sft:inventory_disk_pressure:0000:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0000:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0000:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0000:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0000:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0001:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0001:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0001:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0001:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0001:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0002:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0002:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0002:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0002:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0002:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0003:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0003:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0003:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0003:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0003:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0004:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0004:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0004:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0004:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0004:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0005:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0005:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0005:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0005:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0005:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0006:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0006:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0006:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0006:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0006:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0007:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0007:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0007:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0007:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0007:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0008:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0008:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0008:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0008:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0008:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0009:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0009:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0009:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0009:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0009:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0010:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0010:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0010:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0010:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0010:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0011:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0011:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0011:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0011:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0011:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0012:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0012:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0012:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0012:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0012:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0013:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0013:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0013:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0013:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0013:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0014:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0014:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0014:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0014:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0014:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0015:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0015:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0015:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0015:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0015:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0016:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0016:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0016:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0016:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0016:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0017:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0017:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0017:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0017:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0017:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0018:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0018:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0018:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0018:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0018:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0019:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0019:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0019:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0019:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0019:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0020:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0020:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0020:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0020:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0020:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0021:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0021:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0021:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0021:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0021:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0022:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0022:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0022:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0022:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0022:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0023:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0023:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0023:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0023:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0023:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0024:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0024:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0024:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0024:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0024:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0025:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0025:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0025:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0025:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0025:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0026:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0026:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0026:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0026:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0026:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0027:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0027:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0027:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0027:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0027:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0028:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0028:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0028:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0028:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0028:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0029:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0029:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0029:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0029:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0029:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0030:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0030:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0030:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0030:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0030:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0031:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0031:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0031:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0031:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0031:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0032:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0032:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0032:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0032:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0032:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0033:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0033:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0033:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0033:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0033:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0034:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0034:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0034:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0034:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0034:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0035:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0035:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0035:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0035:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0035:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0036:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0036:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0036:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0036:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0036:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0037:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0037:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0037:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0037:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0037:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0038:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0038:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0038:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0038:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0038:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0039:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0039:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0039:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0039:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0039:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0040:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0040:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0040:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0040:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0040:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0041:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0041:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0041:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0041:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0041:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0042:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0042:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0042:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0042:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0042:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0043:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0043:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0043:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0043:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0043:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0044:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0044:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0044:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0044:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0044:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0045:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0045:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0045:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0045:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0045:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0046:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0046:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0046:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0046:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0046:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0047:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0047:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0047:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0047:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0047:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0048:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0048:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0048:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0048:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0048:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0049:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0049:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0049:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0049:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0049:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0050:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0050:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0050:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0050:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0050:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0051:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0051:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0051:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0051:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0051:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0052:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0052:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0052:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0052:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0052:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0053:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0053:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0053:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0053:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0053:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0054:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0054:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0054:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0054:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0054:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0055:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0055:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0055:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0055:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0055:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0056:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0056:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0056:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0056:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0056:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0057:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0057:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0057:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0057:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0057:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0058:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0058:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0058:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0058:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0058:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0059:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0059:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0059:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0059:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0059:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0060:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0060:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0060:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0060:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0060:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0061:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0061:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0061:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0061:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0061:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0062:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0062:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0062:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0062:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0062:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0063:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0063:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0063:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0063:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0063:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0064:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0064:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0064:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0064:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0064:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0065:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0065:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0065:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0065:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0065:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0066:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0066:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0066:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0066:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0066:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0067:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0067:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0067:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0067:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0067:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0068:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0068:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0068:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0068:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0068:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0069:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0069:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0069:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0069:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0069:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0070:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0070:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0070:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0070:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0070:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0071:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0071:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0071:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0071:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0071:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0072:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0072:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0072:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0072:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0072:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0073:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0073:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0073:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0073:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0073:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0074:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0074:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0074:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0074:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0074:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0075:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0075:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0075:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0075:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0075:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0076:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0076:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0076:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0076:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0076:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0077:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0077:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0077:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0077:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0077:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0078:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0078:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0078:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0078:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0078:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0079:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0079:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0079:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0079:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0079:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0080:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0080:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0080:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0080:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0080:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0081:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0081:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0081:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0081:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0081:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0082:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0082:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0082:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0082:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0082:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0083:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0083:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0083:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0083:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0083:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0084:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0084:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0084:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0084:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0084:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0085:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0085:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0085:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0085:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0085:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0086:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0086:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0086:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0086:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0086:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0087:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0087:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0087:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0087:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0087:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0088:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0088:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0088:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0088:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0088:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0089:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0089:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0089:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0089:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0089:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0090:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0090:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0090:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0090:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0090:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0091:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0091:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0091:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0091:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0091:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0092:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0092:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0092:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0092:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0092:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0093:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0093:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0093:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0093:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0093:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0094:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0094:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0094:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0094:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0094:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0095:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0095:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0095:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0095:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0095:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0096:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0096:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0096:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0096:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0096:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0097:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0097:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0097:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0097:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0097:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0098:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0098:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0098:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0098:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0098:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0099:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0099:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0099:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0099:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0099:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0100:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0100:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0100:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0100:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0100:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0101:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0101:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0101:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0101:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0101:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0102:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0102:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0102:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0102:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0102:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0103:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0103:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0103:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0103:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0103:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0104:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0104:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0104:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0104:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0104:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0105:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0105:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0105:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0105:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0105:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0106:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0106:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0106:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0106:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0106:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0107:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0107:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0107:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0107:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0107:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0108:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0108:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0108:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0108:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0108:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0109:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0109:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0109:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0109:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0109:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0110:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0110:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0110:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0110:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0110:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0111:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0111:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0111:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0111:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_disk_pressure:0111:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0000:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0000:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0000:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0000:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0000:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0000:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0001:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0001:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0001:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0001:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0001:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0001:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0002:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0002:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0002:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0002:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0002:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0002:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0003:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0003:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0003:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0003:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0003:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0003:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0004:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0004:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0004:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0004:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0004:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0004:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0005:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0005:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0005:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0005:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0005:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0005:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0006:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0006:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0006:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0006:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0006:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0006:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0007:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0007:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0007:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0007:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0007:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0007:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0008:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0008:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0008:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0008:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0008:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0008:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0009:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0009:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0009:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0009:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0009:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0009:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0010:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0010:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0010:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0010:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0010:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0010:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0011:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0011:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0011:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0011:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0011:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0011:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0012:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0012:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0012:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0012:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0012:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0012:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0013:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0013:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0013:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0013:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0013:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0013:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0014:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0014:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0014:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0014:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0014:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0014:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0015:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0015:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0015:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0015:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0015:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0015:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0016:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0016:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0016:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0016:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0016:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0016:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0017:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0017:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0017:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0017:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0017:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0017:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0018:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0018:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0018:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0018:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0018:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0018:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0019:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0019:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0019:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0019:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0019:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0019:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0020:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0020:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0020:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0020:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0020:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0020:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0021:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0021:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0021:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0021:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0021:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0021:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0022:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0022:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0022:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0022:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0022:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0022:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0023:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0023:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0023:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0023:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0023:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0023:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0024:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0024:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0024:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0024:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0024:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0024:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0025:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0025:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0025:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0025:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0025:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0025:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0026:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0026:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0026:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0026:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0026:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0026:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0027:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0027:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0027:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0027:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0027:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0027:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0028:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0028:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0028:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0028:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0028:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0028:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0029:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0029:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0029:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0029:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0029:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0029:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0030:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0030:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0030:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0030:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0030:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0030:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0031:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0031:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0031:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0031:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0031:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0031:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0032:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0032:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0032:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0032:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0032:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0032:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0033:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0033:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0033:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0033:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0033:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0033:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0034:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0034:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0034:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0034:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0034:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0034:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0035:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0035:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0035:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0035:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0035:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0035:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0036:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0036:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0036:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0036:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0036:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0036:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0037:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0037:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0037:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0037:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0037:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0037:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0038:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0038:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0038:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0038:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0038:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0038:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0039:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0039:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0039:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0039:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0039:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0039:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0040:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0040:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0040:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0040:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0040:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0040:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0041:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0041:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0041:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0041:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0041:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0041:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0042:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0042:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0042:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0042:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0042:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0042:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0043:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0043:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0043:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0043:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0043:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0043:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0044:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0044:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0044:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0044:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0044:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0044:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0045:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0045:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0045:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0045:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0045:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0045:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0046:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0046:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0046:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0046:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0046:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0046:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0047:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0047:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0047:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0047:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0047:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0047:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0048:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0048:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0048:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0048:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0048:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0048:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0049:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0049:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0049:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0049:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0049:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0049:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0050:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0050:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0050:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0050:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0050:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0050:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0051:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0051:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0051:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0051:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0051:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0051:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0052:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0052:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0052:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0052:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0052:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0052:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0053:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0053:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0053:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0053:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0053:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0053:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0054:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0054:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0054:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0054:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0054:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0054:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0055:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0055:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0055:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0055:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0055:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0055:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0056:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0056:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0056:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0056:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0056:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0056:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0057:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0057:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0057:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0057:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0057:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0057:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0058:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0058:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0058:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0058:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0058:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0058:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0059:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0059:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0059:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0059:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0059:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0059:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0060:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0060:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0060:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0060:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0060:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0060:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0061:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0061:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0061:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0061:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0061:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0061:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0062:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0062:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0062:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0062:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0062:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0062:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0063:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0063:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0063:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0063:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0063:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0063:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0064:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0064:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0064:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0064:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0064:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0064:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0065:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0065:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0065:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0065:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0065:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0065:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0066:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0066:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0066:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0066:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0066:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0066:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0067:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0067:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0067:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0067:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0067:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0067:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0068:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0068:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0068:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0068:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0068:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0068:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0069:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0069:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0069:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0069:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0069:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0069:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0070:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0070:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0070:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0070:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0070:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0070:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0071:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0071:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0071:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0071:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0071:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0071:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0072:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0072:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0072:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0072:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0072:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0072:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0073:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0073:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0073:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0073:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0073:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0073:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0074:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0074:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0074:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0074:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0074:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0074:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0075:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0075:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0075:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0075:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0075:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0075:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0076:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0076:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0076:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0076:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0076:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0076:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0077:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0077:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0077:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0077:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0077:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0077:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0078:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0078:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0078:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0078:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0078:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0078:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0079:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0079:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0079:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0079:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0079:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0079:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0080:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0080:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0080:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0080:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0080:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0080:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0081:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0081:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0081:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0081:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0081:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0081:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0082:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0082:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0082:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0082:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0082:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0082:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0083:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0083:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0083:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0083:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0083:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0083:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0084:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0084:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0084:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0084:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0084:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0084:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0085:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0085:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0085:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0085:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0085:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0085:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0086:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0086:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0086:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0086:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0086:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0086:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0087:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0087:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0087:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0087:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0087:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0087:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0088:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0088:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0088:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0088:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0088:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0088:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0089:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0089:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0089:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0089:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0089:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0089:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0090:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0090:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0090:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0090:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0090:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0090:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0091:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0091:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0091:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0091:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0091:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0091:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0092:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0092:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0092:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0092:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0092:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0092:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0093:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0093:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0093:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0093:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0093:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0093:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0094:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0094:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0094:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0094:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0094:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0094:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0095:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0095:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0095:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0095:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0095:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0095:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0096:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0096:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0096:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0096:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0096:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0096:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0097:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0097:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0097:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0097:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0097:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0097:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0098:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0098:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0098:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0098:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0098:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0098:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0099:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0099:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0099:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0099:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0099:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0099:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0100:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0100:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0100:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0100:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0100:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0100:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0101:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0101:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0101:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0101:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0101:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0101:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0102:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0102:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0102:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0102:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0102:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0102:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0103:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0103:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0103:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0103:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0103:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0103:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0104:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0104:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0104:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0104:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0104:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0104:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0105:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0105:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0105:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0105:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0105:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0105:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0106:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0106:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0106:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0106:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0106:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0106:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0107:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0107:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0107:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0107:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0107:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0107:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0108:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0108:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0108:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0108:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0108:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0108:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0109:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0109:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0109:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0109:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0109:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0109:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0110:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0110:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0110:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0110:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0110:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0110:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0111:query_metrics",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0111:query_logs",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0111:get_service_info",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0111:search_runbook",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0111:search_incidents",
+      "reasons": [
+        "invalid_decision"
+      ]
+    },
+    {
+      "sample_id": "sft:inventory_single_instance_failure:0111:terminal",
+      "reasons": [
+        "wrong_terminal_decision_type"
+      ]
+    }
+  ],
+  "comparable": true,
+  "notes": [
+    "Metrics are measured from supplied predictions, not estimated.",
+    "Comparisons are valid only when dataset hash and generation settings match."
+  ]
+}

@@ -1,0 +1,56 @@
+### model
+model_name_or_path: Qwen/Qwen3-4B-Instruct-2507
+adapter_name_or_path: training/artifacts/qwen3-4b/opspilot-sft-v0.2
+quantization_bit: 4
+quantization_method: bnb
+trust_remote_code: true
+upcast_layernorm: true
+
+### method
+stage: dpo
+do_train: true
+finetuning_type: lora
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target: all
+pref_beta: 0.1
+pref_loss: sigmoid
+
+### dataset
+dataset_dir: data/generated/llamafactory
+dataset: opspilot_dpo_train
+eval_dataset: opspilot_dpo_validation
+template: qwen3_nothink
+cutoff_len: 2048
+overwrite_cache: true
+preprocessing_num_workers: 8
+dataloader_num_workers: 2
+
+### output
+output_dir: training/artifacts/qwen3-4b/opspilot-sft-v0.2-dpo
+logging_steps: 10
+save_steps: 100
+eval_steps: 100
+eval_strategy: steps
+save_strategy: steps
+load_best_model_at_end: true
+metric_for_best_model: eval_loss
+greater_is_better: false
+plot_loss: true
+overwrite_output_dir: false
+save_only_model: false
+report_to: none
+
+### train
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 16
+learning_rate: 5.0e-6
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_steps: 26
+bf16: true
+seed: 20260925
+data_seed: 20260925
+ddp_timeout: 180000000
