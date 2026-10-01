@@ -2,6 +2,8 @@ import { spawn } from "node:child_process";
 import { resolve } from "node:path";
 import { createServer } from "vite";
 
+const webPort = Number(process.env.OPSPILOT_E2E_WEB_PORT ?? "5174");
+
 async function waitForHealth(url: string): Promise<void> {
   const deadline = Date.now() + 60_000;
   while (Date.now() < deadline) {
@@ -29,7 +31,7 @@ export default async function globalSetup() {
   const vite = await createServer({
     configFile: resolve(projectRoot, "apps/web/vite.config.ts"),
     root: resolve(projectRoot, "apps/web"),
-    server: { host: "127.0.0.1", port: 5174, strictPort: true }
+    server: { host: "127.0.0.1", port: webPort, strictPort: true }
   });
   await vite.listen();
 

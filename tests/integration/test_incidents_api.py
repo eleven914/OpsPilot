@@ -40,7 +40,7 @@ def test_each_scenario_completes_through_api(scenario: dict[str, object]) -> Non
         "query_metrics", "query_logs", "get_service_info",
         "search_runbook", "search_incidents",
     ]
-    expected_status = "WAITING_APPROVAL" if scenario["action"] else "RESOLVED"
+    expected_status = "WAITING_APPROVAL" if scenario["action"] else "DIAGNOSED"
     assert incident["status"] == expected_status
     assert trace[-1]["payload"]["state"] == expected_status
 
@@ -58,7 +58,7 @@ async def test_inline_diagnoses_do_not_hold_sqlite_write_lock_during_model_wait(
         maximum_active = max(maximum_active, active)
         await asyncio.sleep(0.2)
         active -= 1
-        return [{"event_type": "state_transition", "payload": {"state": "RESOLVED"}}]
+        return [{"event_type": "state_transition", "payload": {"state": "DIAGNOSED"}}]
 
     monkeypatch.setattr(incident_service, "_diagnosis_events", slow_diagnosis)
     transport = httpx.ASGITransport(app=app)
@@ -79,7 +79,7 @@ async def test_inline_diagnoses_do_not_hold_sqlite_write_lock_during_model_wait(
 
     assert maximum_active == 2
     assert [response.status_code for response in responses] == [201, 201]
-    assert [response.json()["status"] for response in responses] == ["RESOLVED", "RESOLVED"]
+    assert [response.json()["status"] for response in responses] == ["DIAGNOSED", "DIAGNOSED"]
 
 
 def test_create_incident_requires_approval_then_executes_action() -> None:
@@ -135,10 +135,16 @@ def test_create_incident_requires_approval_then_executes_action() -> None:
             json={"decision": "approve", "comment": "Evidence reviewed"},
         )
         assert approved.status_code == 200
-        assert approved.json()["status"] == "RESOLVED"
+        assert approved.json()["status"] == "SIMULATION_COMPLETE"
         event_types = [event["event_type"] for event in approved.json()["trace"]]
         assert "tool_result" in event_types
         assert "verification" in event_types
+        verification = next(
+            event for event in approved.json()["trace"]
+            if event["event_type"] == "verification"
+        )
+        assert "no real service health check" in verification["payload"]["message"]
+        assert approved.json()["trace"][-1]["payload"]["state"] == "SIMULATION_COMPLETE"
 
         duplicate = client.post(
             f"/api/v1/approvals/{approval['id']}/decision",
@@ -259,7 +265,7 @@ def test_approver_can_reject_high_risk_rollback() -> None:
         assert any(item["id"] == approval["id"] for item in rejected_items.json())
 
 
-def test_read_only_diagnosis_resolves_without_approval() -> None:
+def test_read_only_diagnosis_completes_without_claiming_repair() -> None:
     with TestClient(app) as client:
         created = client.post(
             "/api/v1/incidents",
@@ -272,7 +278,11 @@ def test_read_only_diagnosis_resolves_without_approval() -> None:
             },
         )
     assert created.status_code == 201
-    assert created.json()["status"] == "RESOLVED"
+    assert created.json()["status"] == "DIAGNOSED"
+    assert not any(
+        event["event_type"] in {"tool_result", "verification"}
+        for event in created.json()["trace"]
+    )
     final = next(
         event
         for event in created.json()["trace"]

@@ -200,7 +200,8 @@ Celery 60 秒 hard limit 也已实测重投并完成；正常 soft limit 会持�
 - 12 个数据驱动场景均经 API 集成测试验证；后端 274 项测试通过，核心模块覆盖率 87.50%，Ruff、mypy 通过。
 - 前端 ESLint、TypeScript/生产构建通过；批准、拒绝、过期三条浏览器 E2E 通过，CI 已补入 E2E 作业。构建仍提示主 bundle 约 826 KB。
 - `npm audit` 报告 0 个漏洞，`pip check` 无依赖冲突；常见私钥/token 特征扫描未命中。Python 漏洞数据库扫描尚未完成，发布前仍需执行；扫描不等于保证绝无密钥。
-- 已选择 Apache-2.0 许可证，目标为账号 `eleven914` 下的公开 GitHub 仓库。建仓与推送待完成；对外提交上游 Issue 的目标和内容尚未确认。远端 AutoDL 服务未在本轮重新部署审计导出接口。
+- 已按 Apache-2.0 许可证发布到公开仓库 `https://github.com/eleven914/OpsPilot`；初始提交 `7999ffe` 仅包含当前源码快照，不含原本 21 个本地提交及其作者邮箱。首次 GitHub Actions 的 backend、frontend、e2e 三项均通过。
+- Python 漏洞数据库扫描、可复现版本标签及对外提交上游 Issue 尚未完成；上游贡献的目标和内容需另行确认。远端 AutoDL 服务未在本轮重新部署审计导出接口。
 
 ## 4. 每阶段固定工作方式
 

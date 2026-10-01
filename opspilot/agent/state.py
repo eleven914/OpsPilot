@@ -10,6 +10,8 @@ class AgentState(StrEnum):
     WAITING_APPROVAL = "WAITING_APPROVAL"
     EXECUTING = "EXECUTING"
     VERIFYING = "VERIFYING"
+    DIAGNOSED = "DIAGNOSED"
+    SIMULATION_COMPLETE = "SIMULATION_COMPLETE"
     RESOLVED = "RESOLVED"
     FAILED = "FAILED"
     REJECTED = "REJECTED"
@@ -22,7 +24,7 @@ ALLOWED_TRANSITIONS: dict[AgentState, set[AgentState]] = {
     AgentState.COLLECTING_EVIDENCE: {AgentState.DIAGNOSING, AgentState.NEEDS_HUMAN},
     AgentState.DIAGNOSING: {
         AgentState.PROPOSING_ACTION,
-        AgentState.RESOLVED,
+        AgentState.DIAGNOSED,
         AgentState.NEEDS_HUMAN,
     },
     AgentState.PROPOSING_ACTION: {
@@ -40,9 +42,12 @@ ALLOWED_TRANSITIONS: dict[AgentState, set[AgentState]] = {
     },
     AgentState.VERIFYING: {
         AgentState.RESOLVED,
+        AgentState.SIMULATION_COMPLETE,
         AgentState.FAILED,
         AgentState.NEEDS_HUMAN,
     },
+    AgentState.DIAGNOSED: set(),
+    AgentState.SIMULATION_COMPLETE: set(),
     AgentState.RESOLVED: set(),
     AgentState.FAILED: set(),
     AgentState.REJECTED: set(),

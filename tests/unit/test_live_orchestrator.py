@@ -147,7 +147,7 @@ async def test_live_orchestrator_runs_strict_evidence_loop() -> None:
     assert len(tool_events) == 5
     assert all("scenario_id" not in event["payload"]["arguments"] for event in tool_events)
     assert len(final["payload"]["evidence_ids"]) == 5
-    assert result.events[-1]["payload"]["state"] == "RESOLVED"
+    assert result.events[-1]["payload"]["state"] == "DIAGNOSED"
     assert result.input_tokens == 60
     assert result.output_tokens == 30
     assert result.latency_ms == 18
@@ -162,7 +162,7 @@ async def test_live_orchestrator_repairs_invalid_output_only_once() -> None:
     )
 
     assert client.calls == 7
-    assert result.events[-1]["payload"]["state"] == "RESOLVED"
+    assert result.events[-1]["payload"]["state"] == "DIAGNOSED"
     assert result.input_tokens == 62
     assert result.output_tokens == 31
 

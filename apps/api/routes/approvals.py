@@ -150,16 +150,16 @@ async def decide_approval(
         {
             "status": "passed",
             "evidence_ids": tool_call.evidence_ids_json,
-            "message": "Sandbox action completed and health check passed",
+            "message": "Sandbox action completed; no real service health check was performed",
         },
     )
-    assert_transition(AgentState.VERIFYING, AgentState.RESOLVED)
-    incident.status = AgentState.RESOLVED
+    assert_transition(AgentState.VERIFYING, AgentState.SIMULATION_COMPLETE)
+    incident.status = AgentState.SIMULATION_COMPLETE
     await _append_trace(
         session,
         incident.id,
         "state_transition",
-        {"state": AgentState.RESOLVED},
+        {"state": AgentState.SIMULATION_COMPLETE},
     )
     run = await session.get(AgentRun, tool_call.run_id)
     if run is not None:

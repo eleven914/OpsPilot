@@ -138,7 +138,7 @@ class MockOrchestrator:
                 "payload": answer.model_dump(),
             }
         )
-        transition(AgentState.RESOLVED)
+        transition(AgentState.DIAGNOSED)
         return events
 
     @staticmethod

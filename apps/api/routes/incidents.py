@@ -222,7 +222,9 @@ async def stream_incident_events(
 
     async def event_stream() -> AsyncIterator[str]:
         cursor = max(after, last_event_id or 0)
-        terminal_states = {"RESOLVED", "FAILED", "REJECTED", "NEEDS_HUMAN"}
+        terminal_states = {
+            "DIAGNOSED", "SIMULATION_COMPLETE", "RESOLVED", "FAILED", "REJECTED", "NEEDS_HUMAN"
+        }
         while not await request.is_disconnected():
             async with SessionFactory() as stream_session:
                 events = list(

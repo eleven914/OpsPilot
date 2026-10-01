@@ -157,7 +157,7 @@ class LiveOrchestrator:
             events.append(
                 {"event_type": "final_answer", "payload": terminal.model_dump()}
             )
-            transition(AgentState.RESOLVED)
+            transition(AgentState.DIAGNOSED)
             return events
         raise ModelOutputError("Diagnosis requires a terminal model decision")
 

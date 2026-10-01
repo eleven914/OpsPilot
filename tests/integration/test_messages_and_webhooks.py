@@ -17,7 +17,7 @@ def test_operator_message_is_appended_and_starts_new_agent_run() -> None:
                 "service_name": "payment",
             },
         )
-        assert created.json()["status"] == "RESOLVED"
+        assert created.json()["status"] == "DIAGNOSED"
         incident_id = created.json()["id"]
 
         followed_up = client.post(
@@ -29,7 +29,7 @@ def test_operator_message_is_appended_and_starts_new_agent_run() -> None:
         )
     assert followed_up.status_code == 200
     incident = followed_up.json()
-    assert incident["status"] == "RESOLVED"
+    assert incident["status"] == "DIAGNOSED"
     messages = [
         event for event in incident["trace"] if event["event_type"] == "user_message"
     ]

@@ -6,6 +6,34 @@ import { Approval, createIncident, decideApproval, Incident, incidentEventsUrl, 
 const { Header, Content } = Layout;
 const { Title, Text, Paragraph } = Typography;
 
+const terminalStatuses = ["DIAGNOSED", "SIMULATION_COMPLETE", "RESOLVED", "FAILED", "REJECTED", "NEEDS_HUMAN"];
+
+function effectiveStatus(incident: Incident): string {
+  if (incident.status !== "RESOLVED") return incident.status;
+  // Older runs used RESOLVED for both a final diagnosis and a sandbox action.
+  const lastOutcome = [...incident.trace].reverse().find((event) =>
+    event.event_type === "final_answer" || event.event_type === "verification"
+  );
+  if (!lastOutcome || lastOutcome.event_type === "final_answer") return "DIAGNOSED";
+  const sandboxAction = JSON.stringify(lastOutcome.payload).includes("Sandbox") || incident.trace.some((event) =>
+    event.event_type === "tool_result" && JSON.stringify(event.payload).includes("Sandbox")
+  );
+  return sandboxAction ? "SIMULATION_COMPLETE" : "RESOLVED";
+}
+
+function statusPresentation(status: string): { label: string; color: string } {
+  const presentations: Record<string, { label: string; color: string }> = {
+    DIAGNOSED: { label: "已完成诊断（未修复）", color: "blue" },
+    SIMULATION_COMPLETE: { label: "模拟执行完成（非真实修复）", color: "purple" },
+    RESOLVED: { label: "已验证恢复", color: "green" },
+    WAITING_APPROVAL: { label: "待审批", color: "orange" },
+    FAILED: { label: "执行失败", color: "red" },
+    REJECTED: { label: "已拒绝", color: "default" },
+    NEEDS_HUMAN: { label: "需人工处理", color: "orange" },
+  };
+  return presentations[status] ?? { label: status, color: "default" };
+}
+
 export default function App() {
   const [incidents, setIncidents] = useState<Incident[]>([]);
   const [selected, setSelected] = useState<Incident>();
@@ -38,17 +66,12 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (!selected || ["RESOLVED", "FAILED", "REJECTED", "NEEDS_HUMAN"].includes(selected.status)) return;
+    if (!selected || terminalStatuses.includes(selected.status)) return;
     const after = selected.trace.at(-1)?.sequence ?? 0;
     const source = new EventSource(incidentEventsUrl(selected.id, after));
     const eventTypes = ["task_queued", "task_started", "task_restarted", "task_failed", "state_transition", "tool_call", "proposed_action", "final_answer", "tool_result", "verification"];
     const receive = (raw: Event) => {
       const event = JSON.parse((raw as MessageEvent<string>).data) as TraceEvent;
-      if (event.event_type === "state_transition" && event.payload.state === "WAITING_APPROVAL") {
-        void listApprovals().then(setApprovals).catch((reason: unknown) => {
-          setError(reason instanceof Error ? reason.message : "无法加载待审批动作");
-        });
-      }
       if (event.event_type === "state_transition" && event.payload.state === "WAITING_APPROVAL") {
         void listApprovals().then(setApprovals).catch((reason: unknown) => {
           setError(reason instanceof Error ? reason.message : "无法加载待审批动作");
@@ -60,7 +83,7 @@ export default function App() {
         const state = event.event_type === "state_transition" && typeof event.payload.state === "string" ? event.payload.state : taskState ?? current.status;
         const updated = { ...current, status: state, trace: [...current.trace, event] };
         setIncidents((items) => items.map((item) => item.id === updated.id ? updated : item));
-        if (["RESOLVED", "FAILED", "REJECTED", "NEEDS_HUMAN"].includes(state)) {
+        if (terminalStatuses.includes(state)) {
           setApprovals((items) => items.filter((item) => item.incident_id !== updated.id));
         }
         return updated;
@@ -108,7 +131,7 @@ export default function App() {
   return (
     <Layout className="shell">
       <Header className="topbar">
-        <Space><SafetyCertificateOutlined /><strong>OpsPilot</strong><Tag color="blue">PHASE 1</Tag></Space>
+        <Space><SafetyCertificateOutlined /><strong>OpsPilot</strong><Tag color="blue">模拟证据</Tag></Space>
         <Text type="secondary">Evidence-first incident response</Text>
       </Header>
       <Content className="content">
@@ -132,13 +155,13 @@ export default function App() {
                 <Form.Item name="description" label="现象描述" rules={[{ required: true, min: 5 }]}>
                   <Input.TextArea rows={4} placeholder="描述告警、影响和观察到的现象" />
                 </Form.Item>
-                <Button block type="primary" htmlType="submit" loading={loading}>启动 Mock 诊断</Button>
+                <Button block type="primary" htmlType="submit" loading={loading}>启动诊断（模拟数据）</Button>
               </Form>
             </Card>
             <Card title="事件列表" className="section-card">
               <List dataSource={incidents} locale={{ emptyText: "暂无事件" }} renderItem={(item) => (
                 <List.Item className="incident-row" onClick={() => setSelected(item)}>
-                  <List.Item.Meta title={<Space><Tag color={item.severity === "P1" ? "red" : "orange"}>{item.severity}</Tag>{item.title}</Space>} description={`${item.service_name} · ${item.status}`} />
+                  <List.Item.Meta title={<Space><Tag color={item.severity === "P1" ? "red" : "orange"}>{item.severity}</Tag>{item.title}</Space>} description={`${item.service_name} · ${statusPresentation(effectiveStatus(item)).label}`} />
                 </List.Item>
               )} />
             </Card>
@@ -161,10 +184,11 @@ export default function App() {
             </Card>
           </Col>
           <Col xs={24} xl={16}>
-            <Card title="诊断轨迹" extra={selected && <Tag color="green">{selected.status}</Tag>}>
+            <Card title="诊断轨迹" extra={selected && <Tag color={statusPresentation(effectiveStatus(selected)).color}>{statusPresentation(effectiveStatus(selected)).label}</Tag>}>
               {loading && !selected ? <Spin /> : !selected ? <Empty description="创建事件后显示证据轨迹" /> : <>
                 <Title level={3}>{selected.title}</Title>
                 <Paragraph type="secondary">{selected.description}</Paragraph>
+                <Alert className="section-card" type="info" showIcon message="当前证据和修复动作均为模拟数据；诊断结论不代表真实服务已恢复。" />
                 <Timeline items={selected.trace.map((event) => ({
                   color: event.event_type === "final_answer" ? "green" : event.event_type === "tool_call" ? "blue" : "gray",
                   children: <div><Text strong>{event.event_type}</Text><pre>{JSON.stringify(event.payload, null, 2)}</pre></div>

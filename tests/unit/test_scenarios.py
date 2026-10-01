@@ -72,7 +72,7 @@ def test_every_scenario_produces_consistent_trace(scenario: dict[str, Any]) -> N
             event for event in events if event["event_type"] == "final_answer"
         )
         assert final["payload"]["root_causes"] == [scenario["root_cause"]]
-        assert events[-1]["payload"]["state"] == "RESOLVED"
+        assert events[-1]["payload"]["state"] == "DIAGNOSED"
     else:
         action = next(
             event for event in events if event["event_type"] == "proposed_action"

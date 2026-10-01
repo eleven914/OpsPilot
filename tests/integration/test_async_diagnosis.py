@@ -142,9 +142,9 @@ async def test_worker_runs_a_queued_diagnosis_with_a_fresh_engine(
                 .order_by(TraceEvent.sequence)
             )
         )
-    assert result["status"] == "RESOLVED"
+    assert result["status"] == "DIAGNOSED"
     assert stored is not None
-    assert stored.status == "RESOLVED"
+    assert stored.status == "DIAGNOSED"
     assert event_types[0] == "task_started"
     assert "final_answer" in event_types
 
@@ -190,7 +190,7 @@ async def test_worker_resumes_a_redelivered_running_task(
                 TraceEvent.event_type == "task_restarted",
             )
         )
-    assert result["status"] == "RESOLVED"
+    assert result["status"] == "DIAGNOSED"
     assert restarted is not None
     assert restarted.payload["redelivered"] is True
 
