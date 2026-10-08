@@ -67,6 +67,7 @@ def test_every_scenario_produces_consistent_trace(scenario: dict[str, Any]) -> N
         event["payload"]["arguments"]["scenario_id"] == scenario["id"]
         for event in tool_events
     )
+    assert len({event["payload"]["result"]["scenario_version"] for event in tool_events}) == 1
     if scenario["action"] is None:
         final = next(
             event for event in events if event["event_type"] == "final_answer"

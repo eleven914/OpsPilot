@@ -1,13 +1,18 @@
 import asyncio
+import hashlib
 import json
 from pathlib import Path
 
 import httpx
 import pytest
 from fastapi.testclient import TestClient
+from sqlalchemy import select
 
 from apps.api.main import app
+from opspilot.db.session import SessionFactory
 from opspilot.incidents import service as incident_service
+from opspilot.models.audit import Evidence
+from opspilot.tools.gateway import ToolGateway
 
 SCENARIOS = json.loads(
     (Path(__file__).resolve().parents[2] / "simulator/scenarios/scenarios.json")
@@ -152,6 +157,168 @@ def test_create_incident_requires_approval_then_executes_action() -> None:
             json={"decision": "approve"},
         )
         assert duplicate.status_code == 409
+
+
+@pytest.mark.parametrize(
+    ("verification_status", "expected_state"),
+    [("failed", "FAILED"), ("inconclusive", "NEEDS_HUMAN")],
+)
+def test_sandbox_verification_never_claims_completion_on_bad_evidence(
+    monkeypatch: pytest.MonkeyPatch,
+    verification_status: str,
+    expected_state: str,
+) -> None:
+    with TestClient(app) as client:
+        created = client.post(
+            "/api/v1/incidents",
+            headers={"X-User-Id": "verification-operator", "X-Role": "operator"},
+            json={
+                "title": "Gateway CPU saturation",
+                "description": "gateway cpu and latency are increasing",
+                "severity": "P2",
+                "service_name": "gateway",
+            },
+        )
+        assert created.status_code == 201
+        incident_id = created.json()["id"]
+        approvals = client.get(
+            "/api/v1/approvals",
+            headers={"X-User-Id": "verification-approver", "X-Role": "approver"},
+        )
+        approval = next(item for item in approvals.json() if item["incident_id"] == incident_id)
+
+        def verify(*_: object) -> dict[str, object]:
+            return {
+                "status": verification_status,
+                "source_uri": "mock://verification/test",
+                "checks": [{"metric": "cpu_usage", "passed": False}],
+                "message": "Sandbox evidence did not pass",
+            }
+
+        monkeypatch.setattr(ToolGateway, "verify_simulated_change", verify)
+        decided = client.post(
+            f"/api/v1/approvals/{approval['id']}/decision",
+            headers={"X-User-Id": "verification-approver", "X-Role": "approver"},
+            json={"decision": "approve"},
+        )
+    assert decided.status_code == 200
+    assert decided.json()["status"] == expected_state
+    verification = next(
+        event for event in decided.json()["trace"] if event["event_type"] == "verification"
+    )
+    assert verification["payload"]["status"] == verification_status
+    assert decided.json()["trace"][-1]["payload"]["state"] == expected_state
+
+
+@pytest.mark.parametrize("phase", ["sandbox_execution", "sandbox_verification"])
+def test_sandbox_exception_is_audited_and_cannot_be_reapproved(
+    monkeypatch: pytest.MonkeyPatch, phase: str
+) -> None:
+    with TestClient(app) as client:
+        created = client.post(
+            "/api/v1/incidents",
+            headers={"X-User-Id": "failure-operator", "X-Role": "operator"},
+            json={
+                "title": "Gateway CPU saturation",
+                "description": "gateway cpu and latency are increasing",
+                "severity": "P2",
+                "service_name": "gateway",
+            },
+        )
+        assert created.status_code == 201
+        incident_id = created.json()["id"]
+        pending = client.get(
+            "/api/v1/approvals",
+            headers={"X-User-Id": "failure-approver", "X-Role": "approver"},
+        )
+        approval = next(item for item in pending.json() if item["incident_id"] == incident_id)
+
+        def fail(*_: object, **__: object) -> dict[str, object]:
+            raise RuntimeError("private sandbox detail")
+
+        method = (
+            "execute_approved_change"
+            if phase == "sandbox_execution"
+            else "verify_simulated_change"
+        )
+        monkeypatch.setattr(ToolGateway, method, fail)
+        decided = client.post(
+            f"/api/v1/approvals/{approval['id']}/decision",
+            headers={"X-User-Id": "failure-approver", "X-Role": "approver"},
+            json={"decision": "approve"},
+        )
+        assert decided.status_code == 200
+        assert decided.json()["status"] == "FAILED"
+        trace = decided.json()["trace"]
+        error = next(event for event in trace if event["event_type"] == "simulation_error")
+        assert error["payload"]["phase"] == phase
+        assert "private sandbox detail" not in json.dumps(trace)
+        assert any(event["event_type"] == "tool_result" for event in trace) is (
+            phase == "sandbox_verification"
+        )
+        assert not any(event["event_type"] == "verification" for event in trace)
+
+        repeated = client.post(
+            f"/api/v1/approvals/{approval['id']}/decision",
+            headers={"X-User-Id": "failure-approver", "X-Role": "approver"},
+            json={"decision": "approve"},
+        )
+        assert repeated.status_code == 409
+
+
+@pytest.mark.asyncio
+async def test_changed_scenario_evidence_invalidates_approval_before_sandbox_action() -> None:
+    transport = httpx.ASGITransport(app=app)
+    async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
+        created = await client.post(
+            "/api/v1/incidents",
+            headers={"X-User-Id": "version-operator", "X-Role": "operator"},
+            json={
+                "title": "Gateway CPU saturation",
+                "description": "gateway cpu and latency are increasing",
+                "severity": "P2",
+                "service_name": "gateway",
+            },
+        )
+        assert created.status_code == 201
+        incident_id = created.json()["id"]
+        approvals = await client.get(
+            "/api/v1/approvals",
+            headers={"X-User-Id": "version-approver", "X-Role": "approver"},
+        )
+        approval = next(item for item in approvals.json() if item["incident_id"] == incident_id)
+
+        async with SessionFactory() as session:
+            evidence = await session.scalar(
+                select(Evidence).where(Evidence.incident_id == incident_id).limit(1)
+            )
+            assert evidence is not None
+            content = json.loads(evidence.content)
+            content["scenario_version"] = "0" * 64
+            evidence.content = json.dumps(content, ensure_ascii=False, sort_keys=True)
+            evidence.content_hash = hashlib.sha256(evidence.content.encode()).hexdigest()
+            await session.commit()
+
+        decided = await client.post(
+            f"/api/v1/approvals/{approval['id']}/decision",
+            headers={"X-User-Id": "version-approver", "X-Role": "approver"},
+            json={"decision": "approve"},
+        )
+        assert decided.status_code == 200
+        assert decided.json()["status"] == "NEEDS_HUMAN"
+        assert not any(
+            event["event_type"] == "tool_result" for event in decided.json()["trace"]
+        )
+        assert any(
+            event["event_type"] == "approval_invalidated"
+            for event in decided.json()["trace"]
+        )
+        repeated = await client.post(
+            f"/api/v1/approvals/{approval['id']}/decision",
+            headers={"X-User-Id": "version-approver", "X-Role": "approver"},
+            json={"decision": "approve"},
+        )
+        assert repeated.status_code == 409
 
 
 def test_invalid_service_is_rejected_before_agent() -> None:

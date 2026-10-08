@@ -1,3 +1,5 @@
+import hashlib
+import json
 from datetime import UTC, datetime
 from typing import Annotated, Any, Literal
 
@@ -16,7 +18,7 @@ from apps.api.schemas import (
 from opspilot.agent.state import AgentState, assert_transition
 from opspilot.approvals.service import expire_pending_approvals
 from opspilot.db.session import get_session
-from opspilot.models.audit import AgentRun, Approval, ToolCall
+from opspilot.models.audit import AgentRun, Approval, Evidence, ToolCall
 from opspilot.models.incident import Incident, TraceEvent
 from opspilot.tools.gateway import ToolGateway
 
@@ -31,7 +33,7 @@ async def list_pending_approvals(
     session: SessionDependency,
     _identity: ReadIdentity,
     status_filter: Annotated[
-        Literal["pending", "approved", "rejected", "expired"],
+        Literal["pending", "approved", "rejected", "expired", "invalidated"],
         Query(alias="status"),
     ] = "pending",
 ) -> list[ApprovalRead]:
@@ -110,6 +112,37 @@ async def decide_approval(
         await session.commit()
         return await _get_incident(session, incident.id)
 
+    evidence_version = await _frozen_scenario_version(
+        session, incident.id, tool_call.evidence_ids_json
+    )
+    gateway = ToolGateway()
+    if (
+        evidence_version is None
+        or gateway.scenario_for_version(incident.service_name, evidence_version) is None
+    ):
+        gateway.close()
+        assert_transition(AgentState(incident.status), AgentState.NEEDS_HUMAN)
+        approval.decision = "invalidated"
+        tool_call.status = "invalidated"
+        incident.status = AgentState.NEEDS_HUMAN
+        await _append_trace(
+            session,
+            incident.id,
+            "approval_invalidated",
+            {"reason": "simulated_evidence_version_unavailable", "approval_id": approval.id},
+        )
+        await _append_trace(
+            session,
+            incident.id,
+            "state_transition",
+            {"state": AgentState.NEEDS_HUMAN},
+        )
+        run = await session.get(AgentRun, tool_call.run_id)
+        if run is not None:
+            run.status = "NEEDS_HUMAN"
+        await session.commit()
+        return await _get_incident(session, incident.id)
+
     assert_transition(AgentState(incident.status), AgentState.EXECUTING)
     approval.decision = "approved"
     incident.status = AgentState.EXECUTING
@@ -119,13 +152,62 @@ async def decide_approval(
         "state_transition",
         {"state": AgentState.EXECUTING, "approval_id": approval.id},
     )
-    result = ToolGateway().execute_approved_change(
-        tool_call.tool_name,
-        tool_call.arguments_json,
-        approval_id=approval.id,
-        approved=True,
-        idempotency_key=tool_call.idempotency_key,
-    )
+    result: dict[str, Any] | None = None
+    phase = "sandbox_execution"
+    try:
+        result = gateway.execute_approved_change(
+            tool_call.tool_name,
+            tool_call.arguments_json,
+            approval_id=approval.id,
+            approved=True,
+            idempotency_key=tool_call.idempotency_key,
+        )
+        phase = "sandbox_verification"
+        verification = gateway.verify_simulated_change(
+            incident.service_name,
+            evidence_version,
+            tool_call.tool_name,
+            tool_call.arguments_json,
+            result,
+        )
+    except Exception as exc:
+        if result is not None:
+            tool_call.result_json = result
+            tool_call.status = "succeeded"
+            await _append_trace(
+                session,
+                incident.id,
+                "tool_result",
+                {"tool_call_id": tool_call.id, "result": result},
+            )
+        else:
+            tool_call.status = "failed"
+        assert_transition(AgentState.EXECUTING, AgentState.FAILED)
+        incident.status = AgentState.FAILED
+        await _append_trace(
+            session,
+            incident.id,
+            "simulation_error",
+            {
+                "tool_call_id": tool_call.id,
+                "phase": phase,
+                "error_type": type(exc).__name__,
+                "message": "Local simulation failed; no real service action was attempted",
+            },
+        )
+        await _append_trace(
+            session,
+            incident.id,
+            "state_transition",
+            {"state": AgentState.FAILED, "reason": "simulation_error"},
+        )
+        run = await session.get(AgentRun, tool_call.run_id)
+        if run is not None:
+            run.status = "FAILED"
+        await session.commit()
+        return await _get_incident(session, incident.id)
+    finally:
+        gateway.close()
     tool_call.result_json = result
     tool_call.status = "succeeded"
     await _append_trace(
@@ -147,25 +229,58 @@ async def decide_approval(
         session,
         incident.id,
         "verification",
-        {
-            "status": "passed",
-            "evidence_ids": tool_call.evidence_ids_json,
-            "message": "Sandbox action completed; no real service health check was performed",
-        },
+        {**verification, "evidence_ids": tool_call.evidence_ids_json},
     )
-    assert_transition(AgentState.VERIFYING, AgentState.SIMULATION_COMPLETE)
-    incident.status = AgentState.SIMULATION_COMPLETE
+    target_state = {
+        "passed": AgentState.SIMULATION_COMPLETE,
+        "failed": AgentState.FAILED,
+        "inconclusive": AgentState.NEEDS_HUMAN,
+    }[verification["status"]]
+    assert_transition(AgentState.VERIFYING, target_state)
+    incident.status = target_state
     await _append_trace(
         session,
         incident.id,
         "state_transition",
-        {"state": AgentState.SIMULATION_COMPLETE},
+        {"state": target_state},
     )
     run = await session.get(AgentRun, tool_call.run_id)
     if run is not None:
-        run.status = "COMPLETED"
+        run.status = "COMPLETED" if target_state == AgentState.SIMULATION_COMPLETE else target_state
     await session.commit()
     return await _get_incident(session, incident.id)
+
+
+async def _frozen_scenario_version(
+    session: AsyncSession, incident_id: str, evidence_ids: list[str]
+) -> str | None:
+    if not evidence_ids or len(set(evidence_ids)) != len(evidence_ids):
+        return None
+    rows = list(
+        await session.scalars(
+            select(Evidence).where(
+                Evidence.incident_id == incident_id,
+                Evidence.id.in_(evidence_ids),
+            )
+        )
+    )
+    if len(rows) != len(evidence_ids):
+        return None
+    versions: set[str] = set()
+    for row in rows:
+        if not row.source_uri.startswith("mock://"):
+            return None
+        if hashlib.sha256(row.content.encode()).hexdigest() != row.content_hash:
+            return None
+        try:
+            content = json.loads(row.content)
+        except ValueError:
+            return None
+        version = content.get("scenario_version") if isinstance(content, dict) else None
+        if not isinstance(version, str) or len(version) != 64:
+            return None
+        versions.add(version)
+    return next(iter(versions)) if len(versions) == 1 else None
 
 
 @router.post("/{approval_id}/approve", response_model=IncidentRead)

@@ -11,7 +11,8 @@
     "recommended_steps": ["确认 gateway-1 与其他实例的 CPU 差异", "审批后仅重启 gateway-1", "验证 P95 延迟恢复"],
     "forbidden_actions": ["禁止同时重启全部 gateway 实例"],
     "alternatives": ["先从负载均衡隔离 gateway-1 并继续观察"],
-    "action": {"tool": "restart_service", "arguments": {"service": "gateway", "instance_ids": ["gateway-1"], "reason": "隔离并重启 CPU 饱和的单个实例"}, "risk": "medium", "rollback_plan": "若健康检查失败，保持该实例隔离并由其余实例承载流量。"}
+    "action": {"tool": "restart_service", "arguments": {"service": "gateway", "instance_ids": ["gateway-1"], "reason": "隔离并重启 CPU 饱和的单个实例"}, "risk": "medium", "rollback_plan": "若健康检查失败，保持该实例隔离并由其余实例承载流量。"},
+    "verification": {"metrics_after": {"cpu_usage": [98, 52, 40], "p95_latency_ms": [1350, 360, 180]}, "logs_after": ["INFO gateway-1 ready after sandbox restart"], "required_log": "gateway-1 ready", "checks": [{"metric": "cpu_usage", "operator": "le", "threshold": 80}, {"metric": "p95_latency_ms", "operator": "le", "threshold": 300}]}
   },
   {
     "id": "notification_memory_leak", "fault_type": "内存泄漏", "service": "notification",
@@ -25,7 +26,8 @@
     "recommended_steps": ["保存堆使用证据", "隔离 notification-1", "审批后重启并持续观察内存"],
     "forbidden_actions": ["禁止删除消息队列中的待发送消息"],
     "alternatives": ["降低 notification-1 流量并扩展其他健康实例"],
-    "action": {"tool": "restart_service", "arguments": {"service": "notification", "instance_ids": ["notification-1"], "reason": "内存持续增长并接近实例限制"}, "risk": "medium", "rollback_plan": "若重启失败，保持实例隔离并由健康实例继续处理消息。"}
+    "action": {"tool": "restart_service", "arguments": {"service": "notification", "instance_ids": ["notification-1"], "reason": "内存持续增长并接近实例限制"}, "risk": "medium", "rollback_plan": "若重启失败，保持实例隔离并由健康实例继续处理消息。"},
+    "verification": {"metrics_after": {"memory_usage": [94, 48, 43], "gc_pause_ms": [140, 24, 13]}, "logs_after": ["INFO notification-1 ready after sandbox restart"], "required_log": "notification-1 ready", "checks": [{"metric": "memory_usage", "operator": "le", "threshold": 80}, {"metric": "gc_pause_ms", "operator": "le", "threshold": 50}]}
   },
   {
     "id": "gateway_thread_pool_exhaustion", "fault_type": "线程池耗尽", "service": "gateway",
@@ -130,7 +132,8 @@
     "recommended_steps": ["确认错误率与 2.4.1 发布时间相关", "审批回滚到 2.3.7", "验证订单成功率"],
     "forbidden_actions": ["禁止未经审批直接回滚"],
     "alternatives": ["先将 2.4.1 流量降为零"],
-    "action": {"tool": "rollback_deployment", "arguments": {"service": "order", "target_version": "2.3.7", "reason": "新版本发布后出现持续 5xx 回归"}, "risk": "high", "rollback_plan": "若回滚后错误率未下降，恢复 2.4.1 并转人工处置。"}
+    "action": {"tool": "rollback_deployment", "arguments": {"service": "order", "target_version": "2.3.7", "reason": "新版本发布后出现持续 5xx 回归"}, "risk": "high", "rollback_plan": "若回滚后错误率未下降，恢复 2.4.1 并转人工处置。"},
+    "verification": {"metrics_after": {"http_5xx_rate": [0.29, 0.04, 0.01], "request_rate": [311, 316, 320]}, "logs_after": ["INFO order version=2.3.7 ready after sandbox rollback"], "required_log": "version=2.3.7 ready", "checks": [{"metric": "http_5xx_rate", "operator": "le", "threshold": 0.05}, {"metric": "request_rate", "operator": "ge", "threshold": 300}]}
   },
   {
     "id": "inventory_single_instance_failure", "fault_type": "单实例异常", "service": "inventory",
@@ -144,7 +147,8 @@
     "recommended_steps": ["隔离 inventory-1", "审批后重启该实例", "验证健康检查"],
     "forbidden_actions": ["禁止重启无关服务"],
     "alternatives": ["增加健康 inventory 实例后再下线故障实例"],
-    "action": {"tool": "restart_service", "arguments": {"service": "inventory", "instance_ids": ["inventory-1"], "reason": "单个实例健康检查持续失败"}, "risk": "medium", "rollback_plan": "若重启失败，保持 inventory-1 隔离并扩展替代实例。"}
+    "action": {"tool": "restart_service", "arguments": {"service": "inventory", "instance_ids": ["inventory-1"], "reason": "单个实例健康检查持续失败"}, "risk": "medium", "rollback_plan": "若重启失败，保持 inventory-1 隔离并扩展替代实例。"},
+    "verification": {"metrics_after": {"instance_health": [0, 1, 1], "service_success_rate": [0.70, 0.97, 0.99]}, "logs_after": ["INFO inventory-1 ready after sandbox restart"], "required_log": "inventory-1 ready", "checks": [{"metric": "instance_health", "operator": "ge", "threshold": 1}, {"metric": "service_success_rate", "operator": "ge", "threshold": 0.95}]}
   },
   {
     "id": "payment_false_alarm", "fault_type": "告警误报", "service": "payment",

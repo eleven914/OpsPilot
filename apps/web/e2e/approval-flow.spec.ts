@@ -25,6 +25,46 @@ test("diagnosis-only result and legacy resolved record are not shown as repaired
   await expect(page.getByText("当前证据和修复动作均为模拟数据").first()).toBeVisible();
 });
 
+test("legacy resolved records need mock verification before simulation is marked complete", async ({ page }) => {
+  const response = await page.request.post("http://127.0.0.1:8010/api/v1/incidents", {
+    headers: { "X-User-Id": "demo-operator", "X-Role": "operator" },
+    data: {
+      title: "Inventory legacy status fixture",
+      description: "inventory false alarm is healthy",
+      severity: "P3",
+      service_name: "inventory"
+    }
+  });
+  expect(response.status()).toBe(201);
+  const incident = await response.json();
+  await page.route("**/api/v1/incidents", async (route) => {
+    const upstream = await route.fetch();
+    const incidents = await upstream.json();
+    const legacy = (id: string, title: string, trace: unknown[]) => ({
+      ...incident, id, title, status: "RESOLVED", trace
+    });
+    await route.fulfill({ response: upstream, json: [
+      legacy("legacy-mock-verified", "Mock verification fixture", [{
+        id: "mock-verification", sequence: 1, event_type: "verification",
+        payload: { status: "passed", source_uri: "mock://verification/gateway" }
+      }]),
+      legacy("legacy-sandbox-only", "Sandbox-only fixture", [{
+        id: "sandbox-result", sequence: 1, event_type: "tool_result", payload: { result: { status: "succeeded" } }
+      }]),
+      legacy("legacy-unknown", "Unknown verification fixture", [{
+        id: "unknown-verification", sequence: 1, event_type: "verification",
+        payload: { status: "passed", source_uri: "https://example.invalid/health" }
+      }]),
+      ...incidents
+    ] });
+  });
+  await page.goto("/");
+  await expect(page.getByText("Mock verification fixture").locator("xpath=ancestor::*[contains(@class,'ant-list-item-meta-content')]").getByText("模拟执行完成（非真实修复）")).toBeVisible();
+  await expect(page.getByText("Sandbox-only fixture").locator("xpath=ancestor::*[contains(@class,'ant-list-item-meta-content')]").getByText("历史模拟动作（未验证真实恢复）")).toBeVisible();
+  await expect(page.getByText("Unknown verification fixture").locator("xpath=ancestor::*[contains(@class,'ant-list-item-meta-content')]").getByText("历史状态（未核实真实恢复）")).toBeVisible();
+  await expect(page.getByText("已验证恢复")).toHaveCount(0);
+});
+
 test("operator diagnoses an incident and approver executes the safe action", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByText("OpsPilot")).toBeVisible();
@@ -37,10 +77,12 @@ test("operator diagnoses an incident and approver executes the safe action", asy
   await expect(page.getByText("restart_service", { exact: true })).toBeVisible();
   await expect(page.getByText("medium", { exact: true })).toBeVisible();
 
-  await page.getByRole("button", { name: "批准并执行" }).click();
+  await page.getByRole("button", { name: "批准并模拟执行" }).click();
   await expect(page.getByText("模拟执行完成（非真实修复）").first()).toBeVisible();
   await expect(page.getByText("tool_result", { exact: true })).toBeVisible();
   await expect(page.getByText("verification", { exact: true })).toBeVisible();
+  await expect(page.locator("pre").filter({ hasText: '"scenario_version"' }).first()).toBeVisible();
+  await expect(page.locator("pre").filter({ hasText: '"metric": "cpu_usage"' })).toBeVisible();
 });
 
 test("approver can reject a high-risk rollback", async ({ page }) => {

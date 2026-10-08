@@ -11,7 +11,7 @@ from pydantic import BaseModel, ValidationError
 
 from opspilot.tools.actions import SandboxActionExecutor
 from opspilot.tools.resilience import ToolResilience, sanitize_output
-from opspilot.tools.scenarios import ScenarioAction, ScenarioDefinition
+from opspilot.tools.scenarios import ScenarioAction, ScenarioDefinition, scenario_version
 from opspilot.tools.schemas import (
     LogsQuery,
     MetricsQuery,
@@ -20,6 +20,7 @@ from opspilot.tools.schemas import (
     SearchQuery,
     ServiceInfoQuery,
 )
+from opspilot.tools.simulation import verify_simulated_change
 
 
 class ToolValidationError(ValueError):
@@ -116,6 +117,7 @@ class ToolGateway:
             "tool": tool_name,
             "arguments": values,
             "observed_at": observed_at,
+            "scenario_version": scenario_version(scenario),
             **payloads[tool_name],
         }
 
@@ -203,6 +205,31 @@ class ToolGateway:
         self, service: str, scenario_id: str | None = None
     ) -> ScenarioAction | None:
         return self._scenario_for(service, scenario_id).action
+
+    def verify_simulated_change(
+        self,
+        service: str,
+        evidence_version: str,
+        tool_name: str,
+        arguments: dict[str, Any],
+        action_result: dict[str, Any],
+    ) -> dict[str, Any]:
+        scenario = self.scenario_for_version(service, evidence_version)
+        if scenario is None:
+            raise ToolValidationError("Approved scenario version is no longer available")
+        return verify_simulated_change(scenario, tool_name, arguments, action_result)
+
+    def scenario_for_version(
+        self, service: str, evidence_version: str
+    ) -> ScenarioDefinition | None:
+        return next(
+            (
+                scenario
+                for scenario in self._scenarios
+                if scenario.service == service and scenario_version(scenario) == evidence_version
+            ),
+            None,
+        )
 
     def _scenario_for(
         self, service: str, scenario_id: str | None = None

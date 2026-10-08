@@ -203,6 +203,10 @@ Celery 60 秒 hard limit 也已实测重投并完成；正常 soft limit 会持�
 - 已按 Apache-2.0 许可证发布到公开仓库 `https://github.com/eleven914/OpsPilot`；初始提交 `7999ffe` 仅包含当前源码快照，不含原本 21 个本地提交及其作者邮箱。首次 GitHub Actions 的 backend、frontend、e2e 三项均通过。
 - Python 漏洞数据库扫描、可复现版本标签及对外提交上游 Issue 尚未完成；上游贡献的目标和内容需另行确认。远端 AutoDL 服务未在本轮重新部署审计导出接口。
 
+### Phase 5：本地模拟诊断与审批演练（后续开发）
+
+用户已于 2026-10-08 将方向改为仅进行本地模拟，取消预发 Prometheus/Loki 与 Kubernetes 真实动作接入。下一阶段围绕“确定性模拟证据 → 双人审批演练 → 沙箱动作 → 模拟验证与审计”提升可复现性；详细范围和验收标准见 [Phase 5 本地模拟计划](docs/PHASE5_LOCAL_SIMULATION.md)。不连接真实监控或生产系统，不把模拟完成标记为真实修复。
+
 ## 4. 每阶段固定工作方式
 
 每个阶段都按同一闭环推进：

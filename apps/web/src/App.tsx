@@ -10,24 +10,29 @@ const terminalStatuses = ["DIAGNOSED", "SIMULATION_COMPLETE", "RESOLVED", "FAILE
 
 function effectiveStatus(incident: Incident): string {
   if (incident.status !== "RESOLVED") return incident.status;
-  // Older runs used RESOLVED for both a final diagnosis and a sandbox action.
-  const lastOutcome = [...incident.trace].reverse().find((event) =>
-    event.event_type === "final_answer" || event.event_type === "verification"
+  // Legacy runs reused RESOLVED for diagnosis and sandbox outcomes. Do not infer
+  // a real recovery from that stored state in this local-only simulation.
+  const latestOutcome = [...incident.trace].reverse().find((event) =>
+    ["verification", "tool_result", "simulation_error", "final_answer"].includes(event.event_type)
   );
-  if (!lastOutcome || lastOutcome.event_type === "final_answer") return "DIAGNOSED";
-  const sandboxAction = JSON.stringify(lastOutcome.payload).includes("Sandbox") || incident.trace.some((event) =>
-    event.event_type === "tool_result" && JSON.stringify(event.payload).includes("Sandbox")
-  );
-  return sandboxAction ? "SIMULATION_COMPLETE" : "RESOLVED";
+  if (latestOutcome?.event_type === "verification" &&
+      latestOutcome.payload.status === "passed" &&
+      typeof latestOutcome.payload.source_uri === "string" &&
+      latestOutcome.payload.source_uri.startsWith("mock://")) return "SIMULATION_COMPLETE";
+  if (latestOutcome?.event_type === "tool_result" || latestOutcome?.event_type === "simulation_error") return "LEGACY_SIMULATION_UNVERIFIED";
+  if (latestOutcome?.event_type === "final_answer") return "DIAGNOSED";
+  return "LEGACY_UNVERIFIED";
 }
 
 function statusPresentation(status: string): { label: string; color: string } {
   const presentations: Record<string, { label: string; color: string }> = {
     DIAGNOSED: { label: "已完成诊断（未修复）", color: "blue" },
     SIMULATION_COMPLETE: { label: "模拟执行完成（非真实修复）", color: "purple" },
-    RESOLVED: { label: "已验证恢复", color: "green" },
+    RESOLVED: { label: "历史状态（未核实真实恢复）", color: "orange" },
+    LEGACY_SIMULATION_UNVERIFIED: { label: "历史模拟动作（未验证真实恢复）", color: "orange" },
+    LEGACY_UNVERIFIED: { label: "历史状态（未核实真实恢复）", color: "orange" },
     WAITING_APPROVAL: { label: "待审批", color: "orange" },
-    FAILED: { label: "执行失败", color: "red" },
+    FAILED: { label: "模拟执行或验证失败", color: "red" },
     REJECTED: { label: "已拒绝", color: "default" },
     NEEDS_HUMAN: { label: "需人工处理", color: "orange" },
   };
@@ -69,7 +74,7 @@ export default function App() {
     if (!selected || terminalStatuses.includes(selected.status)) return;
     const after = selected.trace.at(-1)?.sequence ?? 0;
     const source = new EventSource(incidentEventsUrl(selected.id, after));
-    const eventTypes = ["task_queued", "task_started", "task_restarted", "task_failed", "state_transition", "tool_call", "proposed_action", "final_answer", "tool_result", "verification"];
+    const eventTypes = ["task_queued", "task_started", "task_restarted", "task_failed", "state_transition", "tool_call", "proposed_action", "approval_invalidated", "final_answer", "tool_result", "simulation_error", "verification"];
     const receive = (raw: Event) => {
       const event = JSON.parse((raw as MessageEvent<string>).data) as TraceEvent;
       if (event.event_type === "state_transition" && event.payload.state === "WAITING_APPROVAL") {
@@ -175,7 +180,7 @@ export default function App() {
                     <Text>回滚方案：{approval.rollback_plan}</Text>
                     <Text type="secondary">证据：{approval.evidence_ids.length} 项</Text>
                     <Space>
-                      <Button type="primary" loading={loading} onClick={() => void review(approval, "approve")}>批准并执行</Button>
+                      <Button type="primary" loading={loading} onClick={() => void review(approval, "approve")}>批准并模拟执行</Button>
                       <Button danger loading={loading} onClick={() => void review(approval, "reject")}>拒绝</Button>
                     </Space>
                   </Space>
